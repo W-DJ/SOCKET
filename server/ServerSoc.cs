@@ -12,6 +12,7 @@ using System.Net;//추가
 using System.Net.Sockets;//추가
 using System.IO;//추가
 using System.Net.WebSockets;
+using System.Runtime.InteropServices;
 
 namespace server
 {
@@ -31,16 +32,16 @@ namespace server
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			
+
 
 
 		}
-			Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+		Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
 		private void button1_Click(object sender, EventArgs e)
 		{
 			Thread thread1 = new Thread(start);
-			thread1.IsBackground= true;	
+			thread1.IsBackground = true;
 			thread1.Start();
 
 		}
@@ -49,61 +50,67 @@ namespace server
 		{
 
 			IPEndPoint ep = new IPEndPoint(IPAddress.Parse("10.10.10.60"), 5000);
-			
-			sock.Bind(ep);
 
-			sock.Listen(1000);
+			sock.Bind(ep); //소켓을 주소로 묶음
 
-			writeRichTextbox("서버 준비... 클라이언트 기다리는 중");
+			sock.Listen(1000); // 소켓으로 받아요
+
+			writeRichTextbox("서버 준비... 클라이언트 기다리는 중"); // 창에 띄워요
 
 			Socket ClientSock = sock.Accept(); //클라이언트 소켓 접근
-			ClientSock.Send(Encoding.ASCII.GetBytes("Welcome server!!"));
+
+			ClientSock.Send(Encoding.ASCII.GetBytes("!"));
 
 			var sb = new StringBuilder(); //메시지 버퍼
 
 			byte[] buffer = new byte[8192]; //버퍼 크기
 
+			
+			var data = Encoding.ASCII.GetString(buffer); //클라이언트로 받은 메시지를 string으로 변환
+			ClientSock.Receive(buffer); //서버로 부터 버퍼를 받는다
+
+			ClientSock.BeginSend(buffer, 0, 20, SocketFlags.None, new AsyncCallback(sendStr), ClientSock);
+
+			ClientSock.BeginReceive(buffer, 0, 20, SocketFlags.None, new AsyncCallback(receiveStr), ClientSock);
+
+
+
 			while (true)
 			{
-				ClientSock.Receive(buffer); //클라이언트로 부터 버퍼를 받는다
 
-				ClientSock.BeginSend(buffer, 0, 20, SocketFlags.None,new AsyncCallback(sendStr), ClientSock);
 
-				ClientSock.BeginReceive(buffer,0,20,SocketFlags.None, new AsyncCallback(receiveStr), ClientSock);
+			sb.Append(data.Trim()); //공백 제거
 
-				var data = Encoding.ASCII.GetString(buffer); //클라이언트로 받은 메시지를 string으로 변환
-
-				
-
-				sb.Append(data.Trim('\0')); //공백 제거
-
-				if (sb.Length > 2) {
+			if (sb.Length > 2)
+			{
 				data = sb.ToString();
-					if (String.IsNullOrEmpty(data))
-					{
-						continue;
-					}
+				if (String.IsNullOrEmpty(data))
+				{
+					continue;
+				}
 
-					if (data == "Exit")
-					{
-						break;
-					}
+				if (data == "Exit")
+				{
+					break;
+				}
 
-					writeRichTextbox("회원 : " + data);
-					sb.Clear();
+				writeRichTextbox("서버 : " + data); //Welcome Client 가 넘어옴.
 
-					var sendMsg = Encoding.ASCII.GetBytes("Echo : " + "\r\n");
+
+				var sendMsg = Encoding.ASCII.GetBytes("ser : " + "\r\n");
 
 					ClientSock.Send(sendMsg);
 
-					
+
 
 				}
-
 			}
+
+			writeRichTextbox("클라 : " + data); //Welcome Client 가 넘어옴.
 
 			
 
+			
 
 		}
 
@@ -118,8 +125,8 @@ namespace server
 		{
 			Socket ClientSock = (Socket)ar.AsyncState;
 			int receiveStr = ClientSock.EndReceive(ar);
-			
-			MessageBox.Show(Encoding.ASCII.GetString(receiveBytes));
+
+			//MessageBox.Show(Encoding.ASCII.GetString(receiveBytes));
 
 
 		}
@@ -132,17 +139,13 @@ namespace server
 
 		}
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-			button2_Click(sender, e, sock);
-		}
 
-		private void button2_Click(object sender, EventArgs e, Socket sock)
+		private void button2_Click(object sender, EventArgs e)
 		{
 			string sendData1 = textBox3.Text; // textBox3의 내용을 sendData1에 담는다.
 			textBox3.Clear(); // 다시 타자를 칠 수 있도록 빈칸으로 만든다.
 			writeRichTextbox(sendData1 + "\r\n");   // 보내는 내용도 텍스트박스에 나오게 한다.
-			
+
 
 		}
 		/*
