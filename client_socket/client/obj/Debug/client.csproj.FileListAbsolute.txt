@@ -20,3 +20,14 @@ C:\Users\ansetech80\source\repos\client - 복사본\client\obj\Debug\client.cspr
 C:\Users\ansetech80\source\repos\client - 복사본\client\obj\Debug\client.csproj.CoreCompileInputs.cache
 C:\Users\ansetech80\source\repos\client - 복사본\client\obj\Debug\client.exe
 C:\Users\ansetech80\source\repos\client - 복사본\client\obj\Debug\client.pdb
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\bin\Debug\client.exe.config
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\bin\Debug\client.exe
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\bin\Debug\client.pdb
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.csproj.AssemblyReference.cache
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.csproj.SuggestedBindingRedirects.cache
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.Client.resources
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.csproj.GenerateResource.cache
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.exe
+C:\Users\ansetech80\Source\Repos\SOCKET\client_socket\client\obj\Debug\client.pdb

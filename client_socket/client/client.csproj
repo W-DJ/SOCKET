@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientSoc.cs">
+    <Compile Include="ClientSocNaverBlog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientSoc.Designer.cs">
-      <DependentUpon>ClientSoc.cs</DependentUpon>
+    <Compile Include="ClientSocNaverBlog.Designer.cs">
+      <DependentUpon>ClientSocNaverBlog.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ClientSoc.resx">
-      <DependentUpon>ClientSoc.cs</DependentUpon>
+    <EmbeddedResource Include="ClientSocNaverBlog.resx">
+      <DependentUpon>ClientSocNaverBlog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

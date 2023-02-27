@@ -31,22 +31,24 @@ namespace client
 		}
 
 		static byte[] receiveBytes = new byte[1024];
+		static byte[] sendBytes = new byte[1024];
 		private void start()
 		{
 			Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			IPEndPoint ep = new IPEndPoint(IPAddress.Parse("10.10.10.60"), 5000);
 			sock.Connect(ep);
+
+			sock.Send(Encoding.UTF8.GetBytes("fasdfadsf"));
+
+			sock.Send(sendBytes);
+
+			
 			
 			sock.Receive(receiveBytes);
 
-			string sendData = textBox3.Text; //textBox3의 텍스트를 sendData1에 담는다.
-			
-
-
-			sock.Send(Encoding.ASCII.GetBytes("Welcome Client!!"));
 			Console.WriteLine(Encoding.Default.GetString(receiveBytes));
 
-
+			
 			
 
 			
