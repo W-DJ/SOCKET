@@ -13,6 +13,7 @@ using System.Net.Sockets;//추가
 using System.IO;//추가
 using System.Net.WebSockets;
 using System.Runtime.InteropServices;
+using System.Linq.Expressions;
 
 namespace server
 {
@@ -42,9 +43,13 @@ namespace server
 		{
 			Thread thread1 = new Thread(start);
 			thread1.IsBackground = true;
+
 			thread1.Start();
 
 		}
+
+
+			byte[] buffer = new byte[8192]; //버퍼 크기
 
 		private void start()
 		{
@@ -55,100 +60,40 @@ namespace server
 
 			sock.Listen(1000); // 소켓으로 받아요
 
-			writeRichTextbox("서버 준비... 클라이언트 기다리는 중"); // 창에 띄워요
+
 
 			Socket ClientSock = sock.Accept(); //클라이언트 소켓 접근
 
-			ClientSock.Send(Encoding.ASCII.GetBytes("!"));
+			ClientSock.Send(Encoding.ASCII.GetBytes("안녕하세요"));
+			/*while (true) {
+				int receiveData1 = 0;
+				receiveData1 = ClientSock.Receive(buffer);
 
-			var sb = new StringBuilder(); //메시지 버퍼
-
-			byte[] buffer = new byte[8192]; //버퍼 크기
-
-			
-			var data = Encoding.ASCII.GetString(buffer); //클라이언트로 받은 메시지를 string으로 변환
-			ClientSock.Receive(buffer); //서버로 부터 버퍼를 받는다
-
-			ClientSock.BeginSend(buffer, 0, 20, SocketFlags.None, new AsyncCallback(sendStr), ClientSock);
-
-			ClientSock.BeginReceive(buffer, 0, 20, SocketFlags.None, new AsyncCallback(receiveStr), ClientSock);
-
-
-
-			while (true)
-			{
-
-
-			sb.Append(data.Trim()); //공백 제거
-
-			if (sb.Length > 2)
-			{
-				data = sb.ToString();
-				if (String.IsNullOrEmpty(data))
-				{
-					continue;
-				}
-
-				if (data == "Exit")
-				{
-					break;
-				}
-
-				writeRichTextbox("서버 : " + data); //Welcome Client 가 넘어옴.
-
-
-				var sendMsg = Encoding.ASCII.GetBytes("ser : " + "\r\n");
-
-					ClientSock.Send(sendMsg);
-
-
-
-				}
 			}
+*/
 
-			writeRichTextbox("클라 : " + data); //Welcome Client 가 넘어옴.
 
+
+
+
+
+
+
+			int n = ClientSock.Receive(buffer);
+
+			string data = Encoding.UTF8.GetString(buffer, 0, n);
+
+
+			ClientSock.Send(buffer, 0, n, SocketFlags.None); //echo
 			
-
-			
-
+			//ClientSock.Close();
+			//sock.Close();
 		}
 
-		static void sendStr(IAsyncResult ar)
-		{
-			Socket ClientSock = (Socket)ar.AsyncState; //연결된 소켓 파라미터를 가져옴
-			int strLength = ClientSock.EndSend(ar); // 반환값으로 전송한 데이터의 크기를 되돌려 받음.
-		}
-
-		static byte[] receiveBytes = new byte[1024];
-		static void receiveStr(IAsyncResult ar)
-		{
-			Socket ClientSock = (Socket)ar.AsyncState;
-			int receiveStr = ClientSock.EndReceive(ar);
-
-			//MessageBox.Show(Encoding.ASCII.GetString(receiveBytes));
+	}
 
 
-		}
-		private void writeRichTextbox(string str) // rechTextbox1에 쓰기 함수
-		{
-			richTextBox1.Invoke((MethodInvoker)delegate { richTextBox1.AppendText(str + "\r\n"); }); //데이터를 수신창에 표시ㅡ 반드시 
-																									 //invoke를 사용하여 충돌을 피함.
-			richTextBox1.Invoke((MethodInvoker)delegate { richTextBox1.ScrollToCaret(); }); //스크롤을 제일 밑으로.
-
-
-		}
-
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-			string sendData1 = textBox3.Text; // textBox3의 내용을 sendData1에 담는다.
-			textBox3.Clear(); // 다시 타자를 칠 수 있도록 빈칸으로 만든다.
-			writeRichTextbox(sendData1 + "\r\n");   // 보내는 내용도 텍스트박스에 나오게 한다.
-
-
-		}
-		/*
+	/*
 private void button1_Click(object sender, EventArgs e) //버튼을 클릭하면
 {
 Thread thread1 = new Thread(connect); // Thread 객체 생성을 하고 Form과는 별도로 쓰레드에서 connect 함수 실행
@@ -159,7 +104,7 @@ thread1.Start();                    // thread1 시작.
 private void connect() //thread1에 연결된 함수. 메인 폼과 별도로 실행
 {
 TcpListener tcpListener1 = new TcpListener(IPAddress.Parse(textBox1.Text), int.Parse(textBox2.Text)); //서버 객체 생성 및 
-																								 //IP주소와 port번호를 넣어줌
+																							 //IP주소와 port번호를 넣어줌
 tcpListener1.Start();  //tcpListener 서버 시작
 
 writeRichTextbox("서버 준비...클라이언트 기다리는 중");
@@ -185,7 +130,7 @@ writeRichTextbox(receiveData1 + "\r\n"); //데이터를 수신창에 쓰기.
 private void writeRichTextbox(string str) // rechTextbox1에 쓰기 함수
 {
 richTextBox1.Invoke((MethodInvoker)delegate { richTextBox1.AppendText(str + "\r\n"); }); //데이터를 수신창에 표시ㅡ 반드시 
-																					//invoke를 사용하여 충돌을 피함.
+																				//invoke를 사용하여 충돌을 피함.
 richTextBox1.Invoke((MethodInvoker)delegate { richTextBox1.ScrollToCaret(); }); //스크롤을 제일 밑으로.
 
 
@@ -207,5 +152,5 @@ if (e.KeyCode == Keys.Enter)
 button2_Click(this, EventArgs.Empty);
 }
 }*/
-	}
 }
+

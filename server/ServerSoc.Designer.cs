@@ -51,6 +51,7 @@
 			this.richTextBox1.Size = new System.Drawing.Size(377, 121);
 			this.richTextBox1.TabIndex = 5;
 			this.richTextBox1.Text = "";
+			
 			// 
 			// textBox3
 			// 
@@ -69,7 +70,6 @@
 			this.button2.TabIndex = 7;
 			this.button2.Text = "보내기";
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// Server
 			// 
