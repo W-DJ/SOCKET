@@ -1,0 +1,36 @@
+C:\Users\ansetech80\source\repos\server\server\bin\Debug\server.exe.config
+C:\Users\ansetech80\source\repos\server\server\bin\Debug\server.exe
+C:\Users\ansetech80\source\repos\server\server\bin\Debug\server.pdb
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.csproj.AssemblyReference.cache
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.csproj.SuggestedBindingRedirects.cache
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.Properties.Resources.resources
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.csproj.GenerateResource.cache
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.exe
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.pdb
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.Server.resources
+C:\Users\ansetech80\source\repos\server\server\obj\Debug\server.login.resources
+C:\Users\ansetech80\source\repos\server - 복사본\server\bin\Debug\server.exe.config
+C:\Users\ansetech80\source\repos\server - 복사본\server\bin\Debug\server.exe
+C:\Users\ansetech80\source\repos\server - 복사본\server\bin\Debug\server.pdb
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.csproj.AssemblyReference.cache
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.csproj.SuggestedBindingRedirects.cache
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.login.resources
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.Properties.Resources.resources
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.Server.resources
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.csproj.GenerateResource.cache
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.exe
+C:\Users\ansetech80\source\repos\server - 복사본\server\obj\Debug\server.pdb
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\bin\Debug\server.exe.config
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\bin\Debug\server.exe
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\bin\Debug\server.pdb
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.csproj.AssemblyReference.cache
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.csproj.SuggestedBindingRedirects.cache
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.login.resources
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.Properties.Resources.resources
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.Server.resources
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.csproj.GenerateResource.cache
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.exe
+C:\Users\ansetech80\source\repos\SOCKET\server_socket\server\obj\Debug\server.pdb
