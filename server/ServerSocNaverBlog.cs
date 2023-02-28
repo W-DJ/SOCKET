@@ -43,7 +43,7 @@ namespace server
 			{
 				if (isServerOpen == true && acceptSocket.IsBound)
 				{
-					MessageBox.Show("서버 소켓이 이미 열려 있습니다.");
+					MessageBox.Show("서버 소켓이 이미 열려 있습니다..");
 
 					return;
 				}
